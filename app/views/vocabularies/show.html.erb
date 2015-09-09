@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vocabulary.name %>
+</p>
+
+<p>
+  <strong>Meaning:</strong>
+  <%= @vocabulary.meaning %>
+</p>
+
+<p>
+  <strong>Example:</strong>
+  <%= @vocabulary.example %>
+</p>
+
+<p>
+  <strong>P symbol:</strong>
+  <%= @vocabulary.p_symbol %>
+</p>
+
+<%= link_to 'Edit', edit_vocabulary_path(@vocabulary) %> |
+<%= link_to 'Back', vocabularies_path %>

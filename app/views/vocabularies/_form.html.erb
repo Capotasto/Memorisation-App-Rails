@@ -1,0 +1,33 @@
+<%= form_for(@vocabulary) do |f| %>
+  <% if @vocabulary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vocabulary.errors.count, "error") %> prohibited this vocabulary from being saved:</h2>
+
+      <ul>
+      <% @vocabulary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :meaning %><br>
+    <%= f.text_field :meaning %>
+  </div>
+  <div class="field">
+    <%= f.label :example %><br>
+    <%= f.text_field :example %>
+  </div>
+  <div class="field">
+    <%= f.label :p_symbol %><br>
+    <%= f.text_field :p_symbol %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
