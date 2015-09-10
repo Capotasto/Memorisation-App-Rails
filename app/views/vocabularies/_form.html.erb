@@ -1,33 +1,52 @@
-<%= form_for(@vocabulary) do |f| %>
-  <% if @vocabulary.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vocabulary.errors.count, "error") %> prohibited this vocabulary from being saved:</h2>
+<%= form_for @vocabulary, :html => { :class => "form-horizontal vocabulary" } do |f| %>
 
-      <ul>
-      <% @vocabulary.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @vocabulary.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@vocabulary.errors.count, "error") %> prohibited this vocabulary from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @vocabulary.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@vocabulary[:name]) %>
   </div>
-  <div class="field">
-    <%= f.label :meaning %><br>
-    <%= f.text_field :meaning %>
+  <div class="control-group">
+    <%= f.label :meaning, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :meaning, :class => 'form-control' %>
+    </div>
+    <%= error_span(@vocabulary[:meaning]) %>
   </div>
-  <div class="field">
-    <%= f.label :example %><br>
-    <%= f.text_field :example %>
+  <div class="control-group">
+    <%= f.label :example, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :example, :class => 'form-control' %>
+    </div>
+    <%= error_span(@vocabulary[:example]) %>
   </div>
-  <div class="field">
-    <%= f.label :p_symbol %><br>
-    <%= f.text_field :p_symbol %>
+  <div class="control-group">
+    <%= f.label :p_symbol, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :p_symbol, :class => 'form-control' %>
+    </div>
+    <%= error_span(@vocabulary[:p_symbol]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            vocabularies_path, :class => 'btn btn-default' %>
+
 <% end %>
